@@ -1,0 +1,15 @@
+<div class="container" style="text-align: center">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form action="/customer/update/<%= customer.id %>" method="POST">
+                    <h2>Edit Customer</h2>
+                    <input class="form-control" type="text" placeholder="Customer Name" value="<%= customer.name %>" name="name" ><br />
+                    <input class="form-control" type="text" placeholder="Customer Email" value="<%= customer.email %>" name="email" ><br />
+                    <input class="form-control" type="text" placeholder="Customer State" value="<%= customer.state %>" name="state" ><br />
+                    <input class="btn btn-success btn-block" type="submit" value="Update Customer" />
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>

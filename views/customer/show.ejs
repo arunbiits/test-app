@@ -1,0 +1,46 @@
+<div class="container" style="text-align: center">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                            <h1><%= customer.name %></h1>
+                    
+                        <p><b>Email:</b> <%= customer.email %></p>
+                        <p><%= customer.state %></p><br>
+                        <form action="/stock/new" action="POST">
+                           <input type="hidden" value="<%= customer.id %>" name="owner" />
+                           <input type="submit" class="btn btn-primary" value="Add Stock" />     
+                        </form><br>
+                        <h4 style="text-align: left">Stock Details</h4>
+                        <% if(customer.stocks.length != 0) { %>
+                        <table class="table table-striped table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Symbol</th>
+                                    <th>Number of Shares</th>
+                                    <th colspan="3">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% _.each(customer.stocks,function(stock){ %>
+                                    <tr>
+                                        <td><%= stock.symbol %></td>
+                                        <td><%= stock.number_of_shares %></td>
+                                        <!-- <td><a href="/stock/show/<%= stock.id %>"><button class="btn btn-info btn-block"><i class="fa fa-info-circle"></i></button></a></td>
+                                        <td><a href="/stock/edit/<%= stock.id %>"><button class="btn btn-secondary btn-block"><i class="fa fa-pencil"></i></button></a></td>
+                                        <td><a href="/stock/destroy/<%= stock.id %>"><button class="btn btn-danger btn-block"><i class="fa fa-trash"></i></button></a></td> -->
+                                        <td><a href="/stock/show/<%= stock.id %>"><button class="btn btn-info btn-block">Show</button></a></td>
+                                        <td><a href="/stock/edit/<%= stock.id %>"><button class="btn btn-secondary btn-block">Edit</button></a></td>
+                                        <td><a href="/stock/destroy?id=<%= stock.id %>&owner=<%= customer.id %>"><button class="btn btn-danger btn-block">Delete</button></a></td>
+                                    </tr>
+                                <% }) %>  
+                            </tbody>
+                        </table>
+                        <% }else { %>
+                            <h6>---No Stock found---</h6>
+                        <% } %> 
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row" align="center" style="text-align: center;background-color: purple;color: white;">
+                <h1 style="text-align: center" >Customers</h1>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <table class="table table-bordered table-hover table-striped table-responsive">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>State</th>
+                        <th colspan="4">Action <span><a href="/customer/new"><button class="btn btn-primary">Add New</button></a></span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%_.each(customers, function(customer){ %>
+                        <tr data-id="<%= customer.id %>" data-model="customer" >
+                            <td><%= customer.id %></td>
+                            <td><%= customer.name %></td>
+                            <td><%= customer.email %></td>
+                            <td><%= customer.state %></td>
+                            <!-- <td><a href="/customer/destroy/<%= customer.id %>" >Delete</a></td> -->
+                            <td><a href="/customer/show/<%= customer.id %>" ><button class="btn btn-info">Show</button></a></td>
+                            <td><a href="/customer/edit/<%= customer.id %>" ><button class="btn btn-secondary">Edit</button></a></td>
+                            <td><a href="/customer/destroy/<%= customer.id %>" ><button class="btn btn-danger">Delete</button></a></td>
+                            
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container" style="text-align: center">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form action="/stock/update/<%= stock.id %>" method="POST">
+                    <h2>Edit Stock Details</h2>
+                    <input type="hidden" value="<%= stock.owner %>" name="owner" />
+                    <input class="form-control" type="text" placeholder="Stock Symbol" value="<%= stock.symbol %>" name="symbol" ><br />
+                    <input class="form-control" type="text" placeholder="No of shares" value="<%= stock.number_of_shares %>" name="number_of_shares" ><br />
+                    <input class="btn btn-success btn-block" type="submit" value="Update Stock" />
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
